@@ -30,10 +30,3 @@ RUN pecl install mongodb && docker-php-ext-enable mongodb
 RUN pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        libgraphicsmagick1-dev \
-    && pecl install gmagick-2.0.5RC1 \
-    && touch /usr/local/etc/php/conf.d/gmagick.ini \
-    && echo "extension=gmagick.so" >> /usr/local/etc/php/conf.d/gmagick.ini \
-    && rm -r /var/lib/apt/lists/*
