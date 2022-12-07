@@ -1,4 +1,4 @@
-FROM php:8.0-cli
+FROM php:8.1-cli
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
+        git \
     && rm -r /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y \
